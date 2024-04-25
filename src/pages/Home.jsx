@@ -13,8 +13,8 @@ const Home = () => {
 
   return (
     <Layout>
-      <section>
-        <div className="grid grid-cols-2 gap-2 mx-4">
+      <section className="max-w-7xl mx-auto px-4">
+        <div className="grid grid-cols-2 lg:grid-cols-6 gap-2">
           {products.map((product) => (
             <Product
               key={product.id}
