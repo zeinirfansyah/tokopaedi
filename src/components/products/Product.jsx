@@ -8,19 +8,19 @@ import { Button } from "../ui/Button";
 const Product = ({ product, onAddToCart, onProductDetails }) => {
   return (
     <div key={product.id} className="flex flex-col gap-4 p-4 border rounded">
-      <Link onClick={() => onProductDetails(product)} to="product-detail">
+      <Link onClick={() => onProductDetails(product)} to="product-detail" className="min-h-[280px]">
         <div className="flex flex-col gap-2">
           <img
             src={product.image}
             alt={product.title}
-            className="focus:outline-none w-full h-44"
+            className="focus:outline-none w-full h-44 object-contain"
           />
           <LinesEllipsis
-            text={product.description}
+            text={product.title}
             maxLine="2"
             ellipsis="..."
             trimRight
-            basedOn="letters"
+            basedOn='letters'
             className="text-[14px] tracking-tight text-gray-600"
           />
           <h1 className="font-bold tracking-tight">${product.price}</h1>
