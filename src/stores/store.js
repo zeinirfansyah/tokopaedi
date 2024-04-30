@@ -6,6 +6,7 @@ const initialState = {
   products: [],
   cart: [],
   Product: [],
+  selectedCategory: "all",
   total: 0,
   count: 0,
 };
@@ -104,13 +105,25 @@ const useStore = create(
         }
       },
 
+      // filterProducts: (category) => {
+      //   const { products } = useStore.getState();
+      //   const result = products.filter((p) => {
+      //     return p.category === category;
+      //   });
+      //   set({ products: result });
+      // },
+
       filterProducts: (category) => {
-        const { products } = useStore.getState();
-        const result = products.filter((p) => {
-          return p.category === category;
-        });
-        set({ products: result });
+        set({ selectedCategory: category });
       },
+
+      getFilteredProducts: () => {
+        const { products, selectedCategory } = useStore.getState();
+        return selectedCategory === "all"
+          ? products
+          : products.filter((p) => p.category === selectedCategory);
+      },
+      
     }),
     {
       name: "cartStore",
