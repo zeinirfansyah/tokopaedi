@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 
 const Footer = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const isCartRoute = window.location.pathname === "/cart";
 
   useEffect(() => {
     const handleResize = () => {
@@ -27,9 +26,17 @@ const Footer = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4">
-          {isCartRoute && <h1>Cart footer</h1>}
-          {!isCartRoute && isMobile && <h1>MOBILE NAVIGATION</h1>}
-          {!isCartRoute && !isMobile && <h1>desktop footer</h1>}
+          {!isMobile ? (
+            <>
+              <h1>Footer</h1>
+            </>
+          ) : (
+            <>
+            <div className="flex justify-between">
+             Nvigation
+            </div>
+            </>
+          )}
         </div>
       </footer>
     </>
