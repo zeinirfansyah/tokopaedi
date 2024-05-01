@@ -6,6 +6,7 @@ import { Cart } from "./pages/Cart";
 import Layout from "./layouts/Layout";
 import { Checkout } from "./pages/Checkout";
 import { CheckoutHistory } from "./pages/CheckoutHistory";
+import CheckoutHistoryDetail from "./pages/CheckoutHistoryDetail";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/history" element={<CheckoutHistory/>} />
+            <Route path="/history/:id" element={<CheckoutHistoryDetail/>} />
           </Routes>
         </Layout>
       </Router>

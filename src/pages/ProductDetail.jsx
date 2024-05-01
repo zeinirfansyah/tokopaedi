@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import useStore from "../../stores/store";
+import useStore from "../stores/store";
 
 const ProductDetail = () => {
   const store = useStore();

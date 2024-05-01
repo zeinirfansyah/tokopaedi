@@ -5,6 +5,7 @@ const initialState = {
   isLoading: true,
   products: [],
   cart: [],
+  history: [],
   Product: [],
   selectedCategory: "all",
   total: 0,
@@ -21,6 +22,35 @@ const useStore = create(
           .then((res) => res.json())
           .then((res) => res);
         set({ products: res, isLoading: false });
+      },
+
+      addToHistory: () => {
+        const { cart, total } = useStore.getState();
+
+        const id = Math.random().toString(36).substring(2, 15);
+
+        const purchaseData = {
+          id,
+          date: new Date().toLocaleDateString(),
+          products: cart.map((product) => ({
+            id: product.id,
+            title: product.title,
+            number: product.number,
+            price: product.price,
+          })),
+          totalPrice: total,
+        };
+
+        set((state) => ({
+          ...state,
+          history: [...state.history, purchaseData],
+        }));
+
+        set({ cart: [], total: 0, count: 0 });
+      },
+
+      clearHistory: () => {
+        set({ history: [] });
       },
 
       addToCart: (product) => {
@@ -123,7 +153,6 @@ const useStore = create(
           ? products
           : products.filter((p) => p.category === selectedCategory);
       },
-      
     }),
     {
       name: "cartStore",
