@@ -9,9 +9,8 @@ const Layout = ({ children }) => {
         <Navbar />
       </header>
       <main>{children}</main>
-      <footer className="bg-white border-t py-5 sticky bottom-0">
-        <Footer />
-      </footer>
+      <Footer />
+     
     </div>
   );
 };
