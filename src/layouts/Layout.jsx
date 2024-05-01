@@ -4,7 +4,7 @@ import Navbar from "../components/header/Header";
 
 const Layout = ({ children }) => {
   return (
-    <div className="flex flex-col justify-between lg:h-auto">
+    <div className="flex flex-col justify-between h-screen">
       <header className="bg-white border-b py-5 sticky top-0">
         <Navbar />
       </header>
