@@ -2,13 +2,15 @@ import LinesEllipsis from "react-lines-ellipsis";
 import useStore from "../stores/store";
 import { useEffect } from "react";
 import star from "../../src/assets/icons/star.svg";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/Button";
 import Icon from "@mdi/react";
 import { mdiTrashCanOutline } from "@mdi/js";
 import BelumBelanja from "./BelumBelanja";
 
 export const Cart = () => {
+  const navigate = useNavigate();
+
   const store = useStore();
   const products = store.cart;
 
@@ -116,11 +118,9 @@ export const Cart = () => {
               <p className="font-bold">${store.total}</p>
             </div>
             <div>
-              <Link to="/checkout">
-                <Button style="bg-green-600 text-white">
-                  Checkout ({products.length})
-                </Button>
-              </Link>
+              <Button onClick={() => navigate("/checkout")} style="bg-green-600 text-white">
+                Checkout ({products.length})
+              </Button>
             </div>
           </div>
         </div>

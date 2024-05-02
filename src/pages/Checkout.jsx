@@ -2,9 +2,11 @@ import useStore from "../stores/store";
 import LinesEllipsis from "react-lines-ellipsis";
 import bca_icon from "../../src/assets/icons/bca_bank.png";
 import { Button } from "../components/ui/Button";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const Checkout = () => {
+  const navigate = useNavigate();
+
   const store = useStore();
   const { cart } = store;
 
@@ -79,14 +81,12 @@ export const Checkout = () => {
                     *Kosongkan jika metode pembayaran cash atau COD
                   </p>
                 </div>
-                <Link to="/history">
-                  <Button
-                    style="bg-green-500 text-white w-full"
-                    onClick={() => store.addToHistory()}
-                  >
-                    Bayar
-                  </Button>
-                </Link>
+                <Button
+                  style="bg-green-500 text-white w-full"
+                  onClick={() => (store.addToHistory(), navigate("/history"))}
+                >
+                  Bayar
+                </Button>
               </div>
             </div>
           </div>
