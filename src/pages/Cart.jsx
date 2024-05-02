@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Button } from "../components/ui/Button";
 import Icon from "@mdi/react";
 import { mdiTrashCanOutline } from "@mdi/js";
+import BelumBelanja from "./BelumBelanja";
 
 export const Cart = () => {
   const store = useStore();
@@ -31,7 +32,7 @@ export const Cart = () => {
             <div className="border rounded-xl px-4 h-[60vh] overflow-y-auto">
               {store.cart.length === 0 ? (
                 <div className="flex h-full items-center justify-center">
-                  <p className="text-center">Cart is empty</p>
+                  <BelumBelanja />
                 </div>
               ) : (
                 <div className="flex flex-col gap-2">
