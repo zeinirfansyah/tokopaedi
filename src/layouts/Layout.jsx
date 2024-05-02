@@ -4,12 +4,16 @@ import Navbar from "../components/header/Header";
 
 const Layout = ({ children }) => {
   return (
-    <div className="flex flex-col justify-between h-screen">
-      <header className="bg-white border-b py-5 sticky top-0">
-        <Navbar />
-      </header>
-      <main>{children}</main>
-      <Footer />
+    <div className="flex flex-col ">
+      <div className="flex flex-col justify-between min-h-screen">
+        <div>
+          <header className="bg-white border-b py-5 sticky top-0">
+            <Navbar />
+          </header>
+          <main>{children}</main>
+        </div>
+        <Footer />
+      </div>
     </div>
   );
 };
