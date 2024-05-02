@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
           <header className="bg-white border-b py-5 sticky top-0">
             <Navbar />
           </header>
-          <main>{children}</main>
+          <main className="py-7">{children}</main>
         </div>
         <Footer />
       </div>
