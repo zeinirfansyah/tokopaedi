@@ -13,38 +13,40 @@ export const Checkout = () => {
   return (
     <>
       <div className="max-w-5xl mx-auto px-4">
-        <h1>Checkout</h1>
+        <h1 className="text-2xl font-bold mb-4">Checkout</h1>
         <div className="flex flex-col lg:flex-row gap-4">
-          <div className="border px-4">
+          <div className="border px-4 lg:w-1/2">
             <div className="flex flex-col h-20 justify-center">
               <div className="flex justify-between items-center text-sm font-semibold">
                 <p>Jumlah Produk:</p>
                 <p>{cart.reduce((acc, product) => acc + product.number, 0)}</p>
               </div>
             </div>
-            {cart.map((product) => (
-              <div
-                key={product.id}
-                className="flex gap-4 py-2 px-2 border-b items-center"
-              >
-                <div className="flex flex-col gap-1 w-full">
-                  <LinesEllipsis
-                    text={product.title}
-                    maxLine="2"
-                    ellipsis=" ... "
-                    trimRight
-                    basedOn="words"
-                    className="text-[14px] tracking-tight text-gray-600"
-                  />
-                  <p className="text-xs">Jumlah: {product.number}</p>
+            <div className="overflow-y-auto lg:h-[40vh]">
+              {cart.map((product) => (
+                <div
+                  key={product.id}
+                  className="flex gap-4 py-2 px-2 border-b items-center"
+                >
+                  <div className="flex flex-col gap-1 w-full">
+                    <LinesEllipsis
+                      text={product.title}
+                      maxLine="2"
+                      ellipsis=" ... "
+                      trimRight
+                      basedOn="words"
+                      className="text-[14px] tracking-tight text-gray-600"
+                    />
+                    <p className="text-xs">Jumlah: {product.number}</p>
+                  </div>
+                  <div className="w-20">
+                    <p className="text-xs text-end">
+                      $ {(product.price * product.number).toFixed(2)}
+                    </p>
+                  </div>
                 </div>
-                <div className="w-20">
-                  <p className="text-xs text-end">
-                    $ {(product.price * product.number).toFixed(2)}
-                  </p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
 
             <div className="flex flex-col h-20 justify-center">
               <div className="flex justify-between items-center text-sm font-semibold">
@@ -53,7 +55,7 @@ export const Checkout = () => {
               </div>
             </div>
           </div>
-          <div>
+          <div className="lg:w-1/2">
             <div className="border p-4">
               <p className="text-end">{new Date().toLocaleDateString()}</p>
               <ul className="flex flex-col gap-1 border-b-2 py-3 my-3">
@@ -87,7 +89,7 @@ export const Checkout = () => {
                     if (cart.length === 0) {
                       alert("Gak ada barang buat dicheckout nih!");
                     } else {
-                      store.addToHistory(), navigate("/history")
+                      store.addToHistory(), navigate("/history");
                     }
                   }}
                 >
