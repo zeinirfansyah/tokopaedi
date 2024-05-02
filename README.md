@@ -1,1 +1,1 @@
-# Tokopaedi (Tokopedia Clone)
+# Tokopaedi (Inspired by Tokopedia)
