@@ -18,7 +18,6 @@ export const CheckoutHistory = () => {
             Clear History
           </p>
         </div>
-        {console.log(history)}
         <div className="border p-4 h-[60vh] overflow-y-auto">
           {store.history.length === 0 ? (
             <div className="flex h-full items-center justify-center">
