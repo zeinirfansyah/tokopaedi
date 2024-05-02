@@ -1,5 +1,5 @@
 import cart from "../../assets/icons/cart.svg";
-import envelope from "../../assets/icons/envelope.svg";
+import receipt from "../../assets/icons/receipt.svg";
 import more from "../../assets/icons/more.svg";
 import { Link } from "react-router-dom";
 import useStore from "../../stores/store";
@@ -26,7 +26,7 @@ const Header = () => {
           </div>
           <div className="flex flex-row items-center gap-2">
             <Link to="/history">
-              <img src={envelope} alt="" className="w-8 hover:cursor-pointer" />
+              <img src={receipt} alt="" className="w-8 hover:cursor-pointer" />
             </Link>
             <Link to="/cart">
               {store.count > 0 && (
