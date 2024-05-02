@@ -37,6 +37,9 @@ const useStore = create(
             title: product.title,
             number: product.number,
             price: product.price,
+            image: product.image,
+            rating: product.rating.rate,
+            count: product.rating.count,
           })),
           totalPrice: total,
         };
