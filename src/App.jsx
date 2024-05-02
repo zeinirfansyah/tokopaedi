@@ -7,6 +7,7 @@ import Layout from "./layouts/Layout";
 import { Checkout } from "./pages/Checkout";
 import { CheckoutHistory } from "./pages/CheckoutHistory";
 import CheckoutHistoryDetail from "./pages/CheckoutHistoryDetail";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App() {
   return (
@@ -17,9 +18,17 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/product-detail" element={<ProductDetail />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/history" element={<CheckoutHistory/>} />
-            <Route path="/history/:id" element={<CheckoutHistoryDetail/>} />
+            <Route
+              path="/checkout"
+              element={
+                <ProtectedRoute>
+                  <Checkout />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/history" element={<CheckoutHistory />} />
+            <Route path="/history/:id" element={<CheckoutHistoryDetail />} />
+            <Route path="*" element={<Home />} />
           </Routes>
         </Layout>
       </Router>
