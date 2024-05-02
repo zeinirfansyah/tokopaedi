@@ -83,7 +83,13 @@ export const Checkout = () => {
                 </div>
                 <Button
                   style="bg-green-500 text-white w-full"
-                  onClick={() => (store.addToHistory(), navigate("/history"))}
+                  onClick={() => {
+                    if (cart.length === 0) {
+                      alert("Gak ada barang buat dicheckout nih!");
+                    } else {
+                      store.addToHistory(), navigate("/history")
+                    }
+                  }}
                 >
                   Bayar
                 </Button>

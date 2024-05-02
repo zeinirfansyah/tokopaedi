@@ -118,7 +118,13 @@ export const Cart = () => {
               <p className="font-bold">${store.total}</p>
             </div>
             <div>
-              <Button onClick={() => navigate("/checkout")} style="bg-green-600 text-white">
+              <Button onClick={() => {
+                if(products.length === 0) {
+                  alert("Keranjang masih kosong");
+                  return;
+                }
+                navigate("/checkout");
+              }} style="bg-green-600 text-white">
                 Checkout ({products.length})
               </Button>
             </div>
