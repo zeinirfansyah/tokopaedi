@@ -23,10 +23,11 @@ export const Cart = () => {
       <div className="max-w-3xl mx-auto px-4 py-4">
         <div className="flex flex-col justify-between h-[70vh]">
           <div className="flex flex-col gap-3">
-            <div>
+            <div className="flex justify-between items-center">
+              <h2 className="text-2xl font-bold mb-4">Keranjang</h2>
               <p
                 onClick={store.clearCart}
-                className="text-end text-sm px-2 hover:text-red-600 transition-all duration-300 cursor-pointer"
+                className="text-green-600 hover:text-red-600 cursor-pointer transition-all duration-500 text-end"
               >
                 Clear Cart
               </p>
@@ -118,13 +119,16 @@ export const Cart = () => {
               <p className="font-bold">${store.total}</p>
             </div>
             <div>
-              <Button onClick={() => {
-                if(products.length === 0) {
-                  alert("Keranjang masih kosong");
-                  return;
-                }
-                navigate("/checkout");
-              }} style="bg-green-600 text-white">
+              <Button
+                onClick={() => {
+                  if (products.length === 0) {
+                    alert("Keranjang masih kosong");
+                    return;
+                  }
+                  navigate("/checkout");
+                }}
+                style="bg-green-600 text-white"
+              >
                 Checkout ({products.length})
               </Button>
             </div>
