@@ -37,7 +37,7 @@ const Product = ({ product, onAddToCart, onProductDetails }) => {
           </div>
         </div>
       </Link>
-      <Button onClick={() => onAddToCart(product)} color="bg-white text-green-600">+ Keranjang</Button>
+      <Button onClick={() => onAddToCart(product)} style="bg-white text-green-600">+ Keranjang</Button>
     </div>
   );
 };
