@@ -21,7 +21,7 @@ export const Cart = () => {
   return (
     <>
       <div className="max-w-3xl mx-auto px-4 py-4">
-        <div className="flex flex-col justify-between h-[70vh]">
+        <div className="flex flex-col justify-between">
           <div className="flex flex-col gap-3">
             <div className="flex justify-between items-center">
               <h2 className="text-2xl font-bold mb-4">Keranjang</h2>
