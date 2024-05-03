@@ -9,7 +9,7 @@ const Home = () => {
 
   useEffect(() => {
     store.fetchProducts();
-  }, [store]);
+  }, []);
 
 
   const handleFilterProducts = (e) => {
