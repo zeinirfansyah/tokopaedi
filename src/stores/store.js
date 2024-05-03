@@ -6,6 +6,7 @@ const initialState = {
   products: [],
   cart: [],
   history: [],
+  categories:["all", "electronics", "jewelery", "men's clothing", "women's clothing"],
   Product: [],
   selectedCategory: "all",
   total: 0,
