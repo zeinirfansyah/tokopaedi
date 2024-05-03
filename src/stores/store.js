@@ -6,8 +6,8 @@ const initialState = {
   products: [],
   cart: [],
   history: [],
-  categories:["all", "electronics", "jewelery", "men's clothing", "women's clothing"],
   Product: [],
+  categories: [],
   selectedCategory: "all",
   total: 0,
   count: 0,
@@ -22,6 +22,11 @@ const useStore = create(
         const res = await fetch("https://fakestoreapi.com/products")
           .then((res) => res.json())
           .then((res) => res);
+        set({
+          categories: res
+            .map((item) => item.category)
+            .filter((item, index, self) => self.indexOf(item) === index),
+        });
         set({ products: res, isLoading: false });
       },
 
